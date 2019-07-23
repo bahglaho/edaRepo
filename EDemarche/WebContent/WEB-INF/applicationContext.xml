@@ -16,10 +16,17 @@
  
  
    <!-- definition de la datasource -->
-   <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+  <!--  <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
   <property name="jndiName" value="${jndiName}"/>
-</bean>
+</bean> -->
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		 <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 
+	  <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/> 
+	 <property name="username" value="eda" /> 
+		<property name="password" value="sndi" />   
+		
+	</bean> 
  
    <!-- configuration de la sessionfactory d'hibernate -->
 	<bean id="sessionFactory"

@@ -6,34 +6,248 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-        <h:head>
-        Title
-        <title>Gestion Greffe</title>
+        <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Nouvelle Demande - Public CRM</title>
+    <link href="http://egouv-rec-pcrm-portal.cloudapp.net/Content/css?v=W8EUe9fQ_2KV8o6EEo94CAqaDfB_pnyrcvWUYXi1tLk1" rel="stylesheet"/>
+
+    <script src="http://egouv-rec-pcrm-portal.cloudapp.net/bundles/modernizr?v=qVODBytEBVVePTNtSFXgRX0NCEjh9U_Oj8ePaSiRcGg1"></script>
+
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+    <style type="text/css" id="holderjs-style">
+        .holderjs-fluid {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            font-family: sans-serif;
+            margin: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="contenu">
+
+        <div id="bandeau">
+            <a class="brand" href="../Account/Login0009.html" dir="auto"><img src="../Images/Client/logo_CI.png" alt="Logo" style="height:95px;width:150px;position:absolute;top:20px"></a>
+            <span class="txtLogo">Les démarches en ligne de l'Administration ivoirienne</span>
+            
+            <a class="txtCdt" href="http://www.servicepublic.gouv.ci/accueil/presentation/1/3" target="_blank"><span>Cliquez ici pour voir les conditions d'utilisation</span></a>
+        </div>
+
+        <span style="position:absolute;top:120px;color:red; text-align:center; align-items:center; font-size:18px"></span>
+        <!-- NAVBAR
+        ================================================== -->
+        <div class="navbar-wrapper">
+            <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+            <div class="container" id="NavBar">
+                <div class="navbar navbar-inverse">
+                    <div class="navbar-inner" style="background-color:#0B4509; color:white">
+                        <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+                        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" style="float:left" onclick="ShowNavBar()">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+</head>
+
+<!-- Mirrored from egouv-rec-pcrm-portal.cloudapp.net/SelfService/NewRequestAnonymous by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 22 Jul 2019 11:56:45 GMT -->
+</html>
+    <li class="liNavBar">
+        <a href="http://egouv-rec-pcrm-portal.cloudapp.net/">
+            <img src="../Images/Identifier.png" alt="Identifier" /><span class="txtNavBar">S'identifier</span>
+        </a>
+    </li>
+    <li class="liNavBar">
+        <a href="../Account/NewAccount.html">
+            <img src="../Images/CreerCompte.png" alt="CreerCompte" /><span class="txtNavBar">Créer un compte</span>
+        </a>
+    </li>
+    <li class="liNavBar">
+        <a href="NewRequestAnonymous.html">
+            <img src="../Images/Procedures.png" alt="Procedures" /><span class="txtNavBar">Accès aux services</span>
+        </a>
+    </li>
+    <li class="liNavBar">
+        <a href="RequestFollowUpAnonymous.html">
+            <img src="../Images/Loupe.png" alt="Loupe" /><span class="txtNavBar">Suivi de dossier</span>
+        </a>
+    </li>
+    <li class="liNavBar">
+        <a href="PublicDocument.html">
+            <img src="../Images/document.png" alt="Loupe" /><span class="txtNavBar">Base documentaire</span>
+        </a>
+    </li>
+
+                            </ul>
+                        </div>
+
+                        <!--/.nav-collapse -->
+                    </div>
+                    <!-- /.navbar-inner -->
+                </div>
+                <!-- /.navbar -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.navbar-wrapper -->
         
-        <meta content="width=device-width, initial-scale=1" name="viewport"/>
-        <meta name="description" content="connexion" />
+        <div class="container marketing" id="containerMark">
+            
+
+
+<h1>Effectuez une nouvelle demande</h1>
+
+<div class="TileContainer">
+
+    <h2>Rubriques</h2>
+            <div class="Tile" onclick="GoToNewRequestAnonymous('88099849-6560-e611-9414-000d3a230540');">
+                    <div class="TileTexte">
+                    Minist&#232;re de l’&#233;ducation nationale - MEN/DECO
+                    </div>
+                    <br />
+                    <img src="../Images/Rubriques_Noir.png" alt=""/>
+            </div>
+            <div class="Tile" onclick="GoToNewRequestAnonymous('85b53153-f8ee-e611-80ec-c4346bacbdc4');">
+                    <div class="TileTexte">
+                    DOB
+                    </div>
+                    <br />
+                    <img src="../Images/Rubriques_Noir.png" alt=""/>
+            </div>
+            <div class="Tile" onclick="GoToNewRequestAnonymous('50cf92a6-78d9-e611-9417-000d3a230540');">
+                    <div class="TileTexte">
+                    DPV
+                    </div>
+                    <br />
+                    <img src="../Images/Rubriques_Noir.png" alt=""/>
+            </div>
+            <div class="Tile" onclick="GoToNewRequestAnonymous('bd1b2579-19d7-e611-9417-000d3a230540');">
+                    <div class="TileTexte">
+                    CHU
+                    </div>
+                    <br />
+                    <img src="../Images/Rubriques_Noir.png" alt=""/>
+            </div>
+            <div class="Tile" onclick="GoToNewRequestAnonymous('93408c2a-2f5e-e611-9414-000d3a230540');">
+                    <div class="TileTexte">
+                    Minist&#232;re du tourisme - MINTOUR/DGU
+                    </div>
+                    <br />
+                    <img src="../Images/Rubriques_Noir.png" alt=""/>
+            </div>
+            <div class="Tile" onclick="GoToNewRequestAnonymous('6f9b5731-63c8-e711-811f-e0071b6c3f31');">
+                    <div class="TileTexte">
+                    MINEF
+                    </div>
+                    <br />
+                        <div class="TileSubTexte">
+                        Minist&#232;re des Eaux et For&#234;ts
+                        </div>
+                    <img src="../Images/Rubriques_Noir.png" alt=""/>
+            </div>
+            <div class="Tile" onclick="GoToNewRequestAnonymous('0d5737a8-02a5-e711-8126-70106fa672b1');">
+                    <div class="TileTexte">
+                    Minist&#232;re de l&#39;Emploi - MEPS
+                    </div>
+                    <br />
+                    <img src="../Images/Rubriques_Noir.png" alt=""/>
+            </div>
+            <div class="Tile" onclick="GoToNewRequestAnonymous('bb9b2872-c1ad-e711-811b-70106fa73061');">
+                    <div class="TileTexte">
+                    MINJUSTICE
+                    </div>
+                    <br />
+                        <div class="TileSubTexte">
+                        Minist&#232;re de Justice
+                        </div>
+                    <img src="../Images/Rubriques_Noir.png" alt=""/>
+            </div>
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+    <br /><br />
+
+</div>
+        </div>
+        <script src="http://egouv-rec-pcrm-portal.cloudapp.net/bundles/jquery?v=-kvGmGF-2o7DYd_M8wv4Mom6pb6Lz3PSFRNrB2KZtik1"></script>
+
+        <script src="http://egouv-rec-pcrm-portal.cloudapp.net/bundles/bootstrap?v=AOYYjszFeu1ChCIQgJOpCsKR2C9iverJB_6w5EBYHZ81"></script>
+
         
-    
-	
-	
-        
-    </h:head>
-    
-    <h:body>
-    <ui:include src="menus.xhtml" />
-    <div class="mainpanel">
-	    <ui:include src="header.xhtml"  />
-		
-		 <h:form id="frContent">
-		 <h:panelGroup id="content" layout="block">
-    <ui:include src="#{userController.page}.xhtml" />
-</h:panelGroup>
-</h:form>
-	    
+    <script>
+        function GoToNewRequestAnonymous(id) {
+            window.location = "/SelfService/NewRequestAnonymous/" + id;
+        }
+
+        function GoToRequest(id) {
+            window.location = "../RequestAnonymousIntro/" + id;
+        }
+    </script>
+
+
+        <script src="http://egouv-rec-pcrm-portal.cloudapp.net/bundles/holder?v="></script>
+
+        <!-- <script src="/Scripts/PublicCRM/LayoutAdmin.js?version=1"></script> -->
+        <script>
+            $(window).resize(function () {
+                var navbar = document.getElementById("NavBar");
+                var container = document.getElementById("containerMark");
+                var marginTop = navbar.clientHeight + 100;
+                container.setAttribute("style", "margin-top:" + marginTop + "px");
+            });
+
+            $(function () {
+                var navbar = document.getElementById("NavBar");
+                var container = document.getElementById("containerMark");
+                var marginTop = navbar.clientHeight + 100;
+                container.setAttribute("style", "margin-top:" + marginTop + "px");
+            });
+            $(function () {
+                $('.multiselect').multiselect({
+                    buttonClass: 'btn',
+                    buttonWidth: 'auto',
+                    buttonContainer: '<div class="btn-group" />',
+                    maxHeight: false,
+                    buttonText: function (options) {
+                        if (options.length == 0) {
+                            return 'None selected <b class="caret"></b>';
+                        }
+                        else if (options.length > 3) {
+                            return options.length + ' selected <b class="caret"></b>';
+                        }
+                        else {
+                            var selected = '';
+                            options.each(function () {
+                                selected += $(this).text() + ', ';
+                            });
+                            return selected.substr(0, selected.length - 2) + ' <b class="caret"></b>';
+                        }
+                    }
+                });
+                $('.datepicker').datepicker({
+                    dateFormat: 'dd/mm/yy'
+                }); //Initialise any date pickers
+            });
+            /*
+            $(function () {
+                $('head').append('<style>#tableau_constructeur{margin-top: 0px;white-space: normal;table-layout: fixed;width: 100%;min-width: 150px;}.title{margin-top: 0px;}.TileContainer{margin-top: 0px;}.ContentContainer{margin-top: 0px;}</style>');
+            });
+            */
+        </script>
     </div>
-    <ui:include src="footer.xhtml" />
-    
-    
-    
-    </h:body>
+</body>
     </html>
