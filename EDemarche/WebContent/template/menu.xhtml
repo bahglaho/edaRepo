@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	    
+	<h:panelGroup  layout="block" id="menu" >
+	<h:form id="frmenu">
+		<h:panelGroup  layout="block">
+ <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+         <!--  <img src="#{request.contextPath}/resources/dist/img/user2-160x160.PNG" class="img-circle" alt="User Image"/> -->
+          <img src="#{request.contextPath}/resources/dist/img/user23-160x160.png" class="img-circle" alt="User Image"/>
+        </div>
+        <div class="pull-left info">
+          <p><span class="hidden-xs"><h:outputText value="#{userController.operateur.opeNom}"/></span></p>
+          <a href="#"><i class="fa fa-circle text-warning" style="color:#3ED7DC"></i> En ligne</a>
+        </div>
+      </div>
+       <div class="user-panel">
+        <div class="user-info">
+                <p>
+                   <h:outputText value="#{userController.fonction.fonLibelle}" style="color:#fff;"/><br/>
+                  <small  style=" color:#fff;">Connecté le : 
+                  <h:outputText value="#{userController.dateCon}">
+              		<f:convertDateTime pattern="dd/MM/yyyy HH:mm" /></h:outputText>
+                  </small>
+                </p>
+                </div>
+      </div>
+    
+    
+    <div class="list-group">
+    
+    <h:commandLink   class="list-group-item" action="#{userController.renderPage('accueil')}" update=":frmenu, :content" >
+  <i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Accueil
+  </h:commandLink>
+  
+  <h:commandLink  class="list-group-item" action="#{userController.switchMenu('1')}" update=":frmenu, :content" >
+  <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp; Elaboration et Suivi du Plan de Trésorerie
+  </h:commandLink>
+   <h:panelGroup rendered="#{userController.vuemoduleELAS}">
+  <ul class="sidebar-menu" data-widget="tree">
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-circle fa-lg"></i> <span>Elaboration</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a> 
+           <ul class="treeview-menu">
+            <li>
+            <p:commandLink action="#{userController.renderPage('ope')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Recette
+             </p:commandLink>
+            </li>
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('fon')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Dépense
+             </p:commandLink>
+            </li>
+            
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('ass')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Financement
+             </p:commandLink>
+            </li>
+  
+           
+          </ul>     
+         </li>
+         
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-circle fa-lg"></i> <span>Exécution</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a> 
+           <ul class="treeview-menu">
+            <li>
+            <p:commandLink action="#{userController.renderPage('ope')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Recette
+             </p:commandLink>
+            </li>
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('fon')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Dépense
+             </p:commandLink>
+            </li>
+            
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('ass')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Financement
+             </p:commandLink>
+            </li>
+  
+           
+          </ul>     
+         </li>
+         
+        
+         <!-- FIN DE TRAITEMENT AGENT VALIDATEUR NIVEAU 2 -->
+         
+         </ul>
+  </h:panelGroup>
+
+    <h:commandLink class="list-group-item" action="#{userController.switchMenu('2')}" update=":frmenu, :content" >
+  <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>&nbsp;Gestion des Disponibilités
+  </h:commandLink>
+ 
+  <h:panelGroup rendered="#{userController.vuemoduleDISP}">
+   <ul class="sidebar-menu" data-widget="tree">
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-circle fa-lg"></i> <span>Disponibilité</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a> 
+           <ul class="treeview-menu">
+            <li>
+            <p:commandLink action="#{userController.renderPage('ope')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Recette
+             </p:commandLink>
+            </li>
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('fon')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Dépense
+             </p:commandLink>
+            </li>
+            
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('ass')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Financement
+             </p:commandLink>
+            </li>
+  
+           
+          </ul>     
+         </li>
+         
+         
+         
+        
+         <!-- FIN DE TRAITEMENT AGENT VALIDATEUR NIVEAU 2 -->
+         
+         </ul>
+ </h:panelGroup>
+  <h:commandLink class="list-group-item" update=":frmenu, :content" >
+  <i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp; Paramètrage du Système
+  </h:commandLink>
+   <ul class="sidebar-menu" data-widget="tree">
+      
+      
+         
+          <!-- DEBUT DE TRAITEMENT AGENT VALIDATEUR NIVEAU 1 -->
+          <h:panelGroup rendered="#{userController.fonction.TTypeFonction.tyfCod == 'AV1'}">
+            <li>
+            <p:commandLink action="#{userController.renderPage('validation')}" update=":content" > 
+            <i class="fa fa-circle-o"></i> Valider des données
+             </p:commandLink>
+            </li>
+         </h:panelGroup>
+         <!-- FIN DE TRAITEMENT AGENT VALIDATEUR NIVEAU 1 -->
+         
+         
+         <!-- DEBUT DE TRAITEMENT AGENT VALIDATEUR NIVEAU 2 -->
+          <h:panelGroup rendered="#{userController.fonction.TTypeFonction.tyfCod == 'AV2'}">
+            <li>
+            <p:commandLink action="#{userController.renderPage('validationglo')}" update=":content" > 
+            <i class="fa fa-circle-o"></i> Valider des données
+             </p:commandLink>
+            </li>
+         </h:panelGroup>
+         <!-- FIN DE TRAITEMENT AGENT VALIDATEUR NIVEAU 2 -->
+         
+         
+         
+         
+       
+        
+
+           <!-- DEBUT TRAITEMENT DU MENU ADMINISTRATEUR -->
+         <h:panelGroup rendered="#{userController.fonction.TTypeFonction.tyfCod == 'ADM'}">
+          <li class="treeview">
+          <a href="#">
+            <i class="fa fa-cog fa-lg"></i> <span>Données paramètres</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a> 
+           <ul class="treeview-menu">
+            <li>
+            <p:commandLink action="#{userController.renderPage('vueplast1')}" update=":content" > 
+            <i class="fa fa-circle-o "></i>Parametrage
+             </p:commandLink>
+            </li>
+         
+        
+         
+            
+          </ul>     
+         </li>
+         
+         
+         
+        
+
+           <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user-circle fa-lg"></i> <span>Gestion des acteurs</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a> 
+           <ul class="treeview-menu">
+            <li>
+            <p:commandLink action="#{userController.renderPage('ope1')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Opérateur
+             </p:commandLink>
+            </li>
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('fon1')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Fonction
+             </p:commandLink>
+            </li>
+            
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('ass1')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Assignation
+             </p:commandLink>
+            </li>
+            
+            <li>
+            <p:commandLink action="#{userController.renderPage('tyf1')}" update=":content" > 
+            <i class="fa fa-circle-o"></i>Type Fonction
+             </p:commandLink>
+            </li>
+           
+          </ul>     
+         </li>
+         
+   
+         </h:panelGroup>
+          <!-- FIN TRAITEMENT DU MENU ADMINISTRATEUR-->
+         
+         
+         
+         
+         
+          
+          
+          
+
+         </ul>
+   
+</div> 
+   
+  
+      </section>
+                    
+</h:panelGroup>
+
+</h:form>
+</h:panelGroup>
+
+</html>

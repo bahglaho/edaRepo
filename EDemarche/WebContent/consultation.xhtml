@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//FR" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	 <!-- Title -->
+        <title>GUPC</title>
+        
+       
+	
+<meta charset="UTF-8"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+ <link href="resources/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="resources/css/template.css" rel="stylesheet"/>
+
+		<link rel="stylesheet" href="resources/assets/plugins/morris/morris.css"/>
+        <!-- Switchery css -->
+        <link href="resources/assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+        <!-- App CSS -->
+        <link href="resources/assets/css/style.css" rel="stylesheet" type="text/css" />
+   
+
+ 
+  
+   <script src="resources/assets/js/modernizr.min.js"></script>
+<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-79190402-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+        
+   
+	
+	   <script type="text/javascript">
+showDialog();
+</script> 
+
+
+
+	
+</h:head>
+<f:view locale="#{changeLocale.locale}">
+ <h:body class="fixed-center">
+ <h:form id="gnl">	
+
+        <div id="wrapper">
+
+         <!-- Top Bar Start -->
+            <div class="topbar">
+
+              <div>
+                <div class="topbar-left" >
+                        
+                        
+                </div>
+
+
+                <nav class="navbar navbar-custom">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <button class="button-menu-mobile open-left waves-light waves-effect">
+                                <i class="zmdi zmdi-menu"></i>
+                            </button>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="nav-item dropdown notification-list">
+                        <a href="/SIGMiCAP/login.jsp" class="display-block text-center m-t-md text-sm"> Fermer la page</a>
+                        
+                           
+                           
+                        </li>
+
+                        
+
+                    </ul>
+
+                </nav>
+                
+                </div>
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="containers">
+                    <div class="pageheader">
+		  <h2><i class="fa fa-briefcase"></i>&nbsp;&nbsp;Suivi de dossier</h2>
+		  <div class="breadcrumb-wrapper">
+		   
+		    <ol class="breadcrumb">
+		      <li><a href="#"></a></li>
+		      <li class="active">Suivi de dossier </li>
+		    </ol>
+		  </div>
+		</div>
+<div class="contentpanel">
+	<div class="panel panel-dark">
+		
+		<p:messages id="message" showDetail="false" autoUpdate="true"  closable="true"/>
+		<div class="panel-body panel-body-nopadding">
+			<div class="table-responsive">
+				<div class="dataTables_wrapper">
+					
+					<div class="dataTables_filter">
+							 <div class="form-inline">
+                    <div class="form-group has-feedback">
+                       <p:inputText type="text" value="#{suiviMissionController.numDossier}" class="form-control"  placeholder="N° Dossier"  > 
+						</p:inputText>
+    						<i class="glyphicon glyphicon-search form-control-feedback"></i>		
+				   </div>
+				   <div class="form-group has-feedback">
+                       <p:inputText type="text" value="#{suiviMissionController.numMatricule}" class="form-control"  placeholder="N° Matricule"  > 
+						</p:inputText>
+    						<i class="glyphicon glyphicon-search form-control-feedback"></i>		
+				   </div>
+				    <div class="form-group has-feedback">
+   						  <p:commandLink styleClass="btn btn-primary m-r-5" value="Valider la recherche"  action="#{suiviMissionController.rechercheDossier()}" update=":gnl"> </p:commandLink>				
+				   </div>
+                    </div>
+                     <br />
+
+					</div>
+					
+				</div>
+			</div>
+		
+		</div>
+	</div>
+
+
+</div>
+							    <h:panelGroup rendered="#{suiviMissionController.renderPanel}">
+							<div class="row">
+                            <div class="col-sm-12">
+                                <div class="timeline">
+                                    <article class="timeline-item alt">
+                                        <div class="text-xs-right">
+                                            <div class="time-show first">
+                                                <a href="#" class="btn btn-custom w-lg">Historique des validations</a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    
+                                    <p:repeat id="suiviRow" value="#{suiviMissionController.suiviListe}" var="suivi"  message="" style="align:center;" >
+                                    <article class="timeline-item alt">
+                                        <div class="timeline-desk">
+                                            <div class="panel">
+                                                <div class="timeline-box">
+                                                    <span class="arrow-alt"></span>
+                                                    <span class="timeline-icon bg-danger"><i class="zmdi zmdi-circle"></i></span>
+                                                    <h4 class="text-danger"><h:outputText value="#{suivi.istatutDate}">
+							              					  <f:convertDateTime pattern="dd MMMM yyyy" />
+							          				        </h:outputText> </h4>
+                                                    <p class="timeline-date text-muted"><small><h:outputText value="#{suivi.istatutDate}">
+							              					  <f:convertDateTime pattern="HH:mm" />
+							          				        </h:outputText> </small></p>
+                                                    <p><STRONG>STATUT:</STRONG> #{suivi.TStatuts.statmissionLibelle} </p>
+                                                     <p><STRONG>OBSERVATION:</STRONG> #{suivi.istatComment} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    </p:repeat>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row TimeLine-->
+						</h:panelGroup>
+							
+                    </div>
+	   
+
+	   
+	
+
+                </div> <!-- content -->
+
+
+
+            </div>
+            <!-- End content-page -->
+
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+            <!-- Right Sidebar -->
+            
+            <!-- /Right-bar -->
+
+            <footer class="footer text-right">
+              SIGMission 2017 © 
+            </footer>
+
+
+        </div>
+        <!-- END wrapper -->
+</h:form>
+
+
+  <script>
+            var resizefunc = [];
+        </script>
+        
+        
+
+     
+	<script src="resources/assets_unified/js/bootstrap.min.js"></script>
+	<script src="resources/assets_unified/js/modernizr.min.js"></script>
+	<script src="resources/assets_unified/js/jquery.sparkline.min.js"></script>
+	<script src="resources/assets_unified/js/toggles.min.js"></script>
+	<script src="resources/assets_unified/js/retina.min.js"></script>
+	<script src="resources/assets_unified/js/jquery.cookies.js"></script>
+	
+	
+	
+	
+        <script src="resources/assets/js/detect.js"></script>
+        <script src="resources/assets/js/fastclick.js"></script>
+        <script src="resources/assets/js/jquery.blockUI.js"></script>
+        <script src="resources/assets/js/waves.js"></script>
+        <script src="resources/assets/js/jquery.nicescroll.js"></script>
+        <script src="resources/assets/js/jquery.scrollTo.min.js"></script>
+        <script src="resources/assets/js/jquery.slimscroll.js"></script>
+        <script src="resources/assets/plugins/switchery/switchery.min.js"></script>
+		 <script src="resources/assets/js/tether.min.js"></script>
+		   <!-- App js -->
+        <script src="resources/assets/js/jquery.core.js"></script>
+        <script src="resources/assets/js/jquery.app.js"></script>
+
+    </h:body>
+    </f:view>
+</html>

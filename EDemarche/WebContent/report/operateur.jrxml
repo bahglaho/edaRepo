@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2019-07-18T17:07:15 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="operateur" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="8796cdbc-9213-4452-b2b5-91a1f3d34742">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="WebContent\report\PG_DataAdapter.xml"/>
+	<parameter name="opeMatricule" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA["OPE012"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="report_image" class="java.lang.String">
+		<defaultValueExpression><![CDATA["WebContent/report/images/"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT DISTINCT 
+	ope.ope_matricule, ope.ope_login, ope.ope_nom,
+  mdp.mdp_motdepasse_init , mdp.mdp_statut ,
+  ass.ass_courant , ass.ass_dat_deb , ass.ass_dat_fin ,
+  fon.fon_cod , fon.fon_libelle
+  
+   FROM  
+  t_operateur ope
+  JOIN t_motdepasse mdp ON ope.ope_matricule = mdp.ope_matricule
+  JOIN t_assignation ass ON ope.ope_matricule = ass.ope_matricule
+  JOIN t_fonction fon ON fon.fon_cod = ass.fon_cod
+  where ass.ass_courant='O'  AND mdp.mdp_statut='1'  AND ope.ope_matricule=$P{opeMatricule}]]>
+	</queryString>
+	<field name="OPE_MATRICULE" class="java.lang.String"/>
+	<field name="OPE_LOGIN" class="java.lang.String"/>
+	<field name="OPE_NOM" class="java.lang.String"/>
+	<field name="MDP_MOTDEPASSE_INIT" class="java.lang.String"/>
+	<field name="MDP_STATUT" class="java.lang.Boolean"/>
+	<field name="ASS_COURANT" class="java.lang.String"/>
+	<field name="ASS_DAT_DEB" class="java.sql.Timestamp"/>
+	<field name="ASS_DAT_FIN" class="java.sql.Timestamp"/>
+	<field name="FON_COD" class="java.lang.String"/>
+	<field name="FON_LIBELLE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="733" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement positionType="Float" x="343" y="85" width="209" height="20" uuid="0cb8e38d-83c3-43de-ab64-50c484f3ac4a"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPUBLIQUE DE CÔTE D'IVOIRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="363" y="106" width="170" height="20" uuid="c4cbaa2f-09a5-46cf-8bc8-f589a0b30317"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[UNION-DISCIPLINE-TRAVAIL]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="40" y="422" width="480" height="20" uuid="514ed361-a6ac-4fcc-9988-5eb7f32c4956"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["A partir du :"+($F{ASS_DAT_DEB} == null  ? "__/__/__": (new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH).format($F{ASS_DAT_DEB})))+" au "+($F{ASS_DAT_FIN} == null  ? "__/__/__": (new SimpleDateFormat("dd/MM/yyyy", Locale.FRENCH).format($F{ASS_DAT_FIN})))]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="120" y="30" width="280" height="45" uuid="23079726-12d8-4602-ab69-49b16e72f377"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SIGTE IDENTIFICATION D'OPERATEUR"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="42" y="188" width="48" height="20" uuid="ab9d4127-4f1a-4ca4-96a4-caf700d8e25b">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[M (Mme):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="212" width="97" height="20" uuid="9e8b4ddb-540e-4523-ada5-7b7b5eb0a61c">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Ayant le matricule :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="245" width="480" height="34" uuid="90d3c876-0498-47b3-b98d-7f06362f725a">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Est informé(e) qu'il (elle) peut se connecter sur le SIGTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="319" width="250" height="20" uuid="933f9c3b-e845-4d97-8d92-82b184d08122">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Et qu'il (elle) doit utiliser le mot de passe suivant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="288" width="120" height="20" uuid="4e7a25cd-b050-4627-912b-972258cd204a">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Sous le nom utilisateur :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="382" width="70" height="20" uuid="99657f3e-e3cc-4a9c-861b-4c4ce9c22954">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[En tant que :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="482" width="480" height="20" uuid="78a49386-b28a-4357-9556-6950176f3490">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Le code fonction qui lui a été attribué]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="41" y="522" width="89" height="20" uuid="638c3c23-97a5-4779-837a-c565a0df5703">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Est le suivant :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="614" width="496" height="42" uuid="dcb58314-801f-4e23-9292-6605f2dc1dd2">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="11" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[En cas d'anomalie ou d'erreur sur ce document, vous devez contacter sans delai, les administrateurs du SIGTE.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="659" width="526" height="51" uuid="522f1964-f4fc-4f20-b48d-05ad8f27fbd5">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" markup="html">
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Le mot de passe vous engage et doit rester strictement confidentiel. <br/> <br/>Vous êtes invité à changer votre mot de passe dès votre première connexion.]]></text>
+			</staticText>
+			<image>
+				<reportElement x="425" y="10" width="70" height="70" uuid="781e1f7c-16cc-4fb2-b81c-5d7f8849fd8c"/>
+				<imageExpression><![CDATA[$P{report_image}+"armoiries.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="160" y="288" width="360" height="20" uuid="36798a4e-a452-4a3e-8b7e-5aabccc0473b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OPE_LOGIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="382" width="410" height="20" uuid="f2c55668-b329-4f55-a1d3-a854dbfbc8ca"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FON_LIBELLE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="522" width="390" height="20" uuid="ef4f09a9-d83d-47d0-b4a7-867a1109fb1f"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FON_COD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="188" width="430" height="20" uuid="c2caf340-ca0d-4173-bb80-b6919674d012"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OPE_NOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="212" width="381" height="20" uuid="11d6ff12-2628-4fac-955d-68763596609a"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OPE_MATRICULE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="290" y="319" width="230" height="20" uuid="6776f7e6-b665-4d3d-b138-20b28201168c"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MDP_MOTDEPASSE_INIT}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="11" width="70" height="70" uuid="4c770344-e778-47a2-9f7e-667a31ea37e4"/>
+				<imageExpression><![CDATA[$P{report_image}+"tresor.png"]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="68"/>
+	</pageFooter>
+</jasperReport>

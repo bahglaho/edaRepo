@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+      
+	
+<section class="content-header">
+      <h1>
+        Demandes
+        <small>Apercu</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Acueil</a></li>
+        <li class="active">Apercu de la demandee</li>
+      </ol>
+    </section>
+    
+    
+   <section class="content">
+   <h:form id="gnl">
+<div class="box box-default">
+<div class="panel-primary">
+           <div class="panel-heading" style="background-color: #f88b2e">Apercu de la demande N° #{etatsController.detail.demCode}
+          
+           </div>
+          </div>
+          
+          <div class="box-body">
+           <div class="widget-box">
+           
+                  <div class="widget-body">
+                 
+                    <div class="widget-main">
+                     
+                       <div id="fuelux-wizard-container">
+                          <fieldset style="border: 1px solid;padding: 10px;">
+					   				 <legend>Informations sur la demande de #{etatsController.detail.tTypeDemande.tydLibelle}</legend>
+					   				 
+					   		 <div class="row">
+					   			<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Demande N°</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demCode}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Section cadastrale</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demCadastreSection}"/></b></div>
+							</div>
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Titre de proprieté</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.tTypeActe.tyaLibelle}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">TF N°</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demNumTf}"/></b></div>
+							</div>
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Acte N°</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demActeNumero}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Ilot N°</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demActeNumIlot}"/></b></div>
+							</div>
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Date de l'acte</label></div>
+								<div class="col-xs-6 col-sm-3"><b>
+								<h:outputText  value="#{etatsController.detail.demActeDate}">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+								</h:outputText></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">lot N°</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demNumLot}"/></b></div>
+							</div>	
+							
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Nature du projet</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demNatreProjetSaisie}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Nombre Lot</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demNombreLot}"/></b></div>
+							</div>
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Classe</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.TClasse.cla_code}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Surface</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demSurface}"/></b></div>
+							</div>
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Type operation</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.tTypeOperation.topLibelle}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Commune</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.tCommune.comLibelle}"/></b></div>
+							</div>
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Montant</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demMontant}">
+								<f:convertNumber pattern="##,###.##"></f:convertNumber>
+								</h:outputText>
+								</b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Quartier</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demQuartier}"/></b></div>
+							</div>
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Montant en lettre</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demMontantLettre}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Type arrete</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demTypeArrete}"/></b></div>
+							</div>
+					   			
+					   	 </fieldset>  
+					   	 
+					   	  <fieldset style="border: 1px solid; padding: 10px;">
+					   	   <legend>Informations sur le demandeur et le proprietaire</legend>
+					   		  <div class="row">
+					   			<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Demandeur</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demDemandeurNom}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Proprietaire</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demProprietaireNom}"/></b></div>
+							</div>
+							
+							<div class="row">	
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Adresse postale</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demDemandeurAdresse}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Adresse postale</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demProprietaireAdresse}"/></b></div>
+							</div>	
+							
+							<div class="row">
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Adresse email</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demDemandeurMail}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Adresse email</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demProprietaireMail}"/></b></div>
+							</div>	
+								
+							<div class="row">
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Contact</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demDemandeurTel}"/></b></div>
+								<div class="col-xs-6 col-sm-3"><label class="control-label pull-right">Contact</label></div>
+								<div class="col-xs-6 col-sm-3"><b><h:outputText  value="#{etatsController.detail.demProprietaireTel}"/></b></div>
+					   		</div>	 
+						             
+					   	 </fieldset>
+					   	 
+					   	  <fieldset style="border: 1px solid; margin-bottom: 15px;padding: 10px;">
+		               <legend>Liste des documents</legend>
+		               
+		                   
+				        <div class="table-responsive">
+				          <p:dataTable id="basicDT" styleClass="table dt-on-steroids mb0" var="doss" value="#{etatsController.dossListe}" emptyMessage="Aucun enregistrement trouvé">
+				        <p:column headerText="Code " styleClass="">
+				            <h:outputText value="#{doss.dosCode}" />
+				        </p:column>
+				        
+				         <p:column headerText="Nature " styleClass="">
+				            <h:outputText value="#{doss.TNatureDocuments.nadLibelle}" />
+				        </p:column>
+				        
+				        <p:column headerText="Date de création">
+				            <h:outputText value="#{doss.dosDate}">
+											<f:convertDateTime pattern="dd/MM/yyyy" />
+						</h:outputText>
+										</p:column>
+										
+										
+						 <p:column headerText="" styleClass="no-sort" width="4%">
+			 	             <p:commandLink styleClass="btn btn-xs btn-success" action="#{etatsController.openDossier}"  title="ouvrir"  ajax="false">
+			 	             <i class="ace-icon fa fa-folder-open bigger-120"  style="color: white"></i> 
+				                <f:setPropertyActionListener value="#{doss}" target="#{etatsController.selectedDossier}" />
+				            </p:commandLink>	
+ 	                    </p:column>  
+				    </p:dataTable>
+                </div>
+		               </fieldset>
+		               
+		               <div class="col-xs-6 col-sm-2"><label class="control-label"></label></div>
+								<div class="col-xs-6 col-sm-4"><label class="control-label"></label></div>
+								<div class="col-xs-6 col-sm-2"><label class="control-label pull-right">Source :</label></div>
+								<div class="col-xs-6 col-sm-4"><label class="control-label">#{etatsController.detail.sitCourt}</label></div>
+					   	 
+					   	
+			                    <div class="row">
+			                    <div class="col-xs-12">
+			                    <div class="col-xs-6 col-sm-2"><label class="control-label pull-right" style="margin-top:30px"><b>Fait a Abidjan,le:</b></label></div>
+			                    <div class="col-xs-6 col-sm-4" style="margin-top:30px">
+			                     <h:outputText value="#{etatsController.detail.demDateSaisie}">
+              		              <f:convertDateTime pattern="dd/MM/yyyy HH:mm" /></h:outputText>
+			                    </div>
+								<div class="col-xs-6 col-sm-2"><label class="control-label pull-right" style="margin-top:30px">Par Mr</label></div>
+			                    <div class="col-xs-6 col-sm-4"><label class="control-label" style="margin-top:30px">#{etatsController.detail.opeNom}</label></div>
+			                   
+			                    </div>
+			                    </div>
+			                 
+			                  
+                        </div>
+                                                <p:commandLink styleClass="btn btn-danger mr10" style="margin-top:60px;margin-left:18px" value="Fermer"  action="#{etatsController.renderPage('dem1')}"  update=":content"/>
+                                                <p:commandLink styleClass="btn btn-success pull-right" style="margin-top:60px" value="Editer fiche demande" ajax="false"  action="#{etatsController.imprimer()}"/>
+                      </div><!-- /.widget-main -->
+                        
+                     </div><!-- /.widget-body -->
+                     
+                   </div>
+                     
+                 </div>
+                 
+             </div>
+             </h:form>
+               </section>
+
+
+    <!-- page specific plugin scripts -->
+
+    <!-- ace scripts -->
+    <script src="../resources/assets/js/ace-elements.min.js"></script>
+    <script src="../resources/assets/js/ace.min.js"></script>
+    
+   
+	
+    
+    
+   	
+
+</html>

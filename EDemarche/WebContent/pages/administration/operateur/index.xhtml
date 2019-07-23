@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/templatePage.xhtml">
+
+	
+	<ui:define name="contents">      
+<h:form id="gnl">	
+
+ <section class="content-header">
+      <h1>
+        Opérateurs
+        <small>Liste des opérateurs</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+        <li class="active">Opérateurs</li>
+      </ol>
+    </section>
+  
+    <section class="content">
+<div class="box box-default">
+
+<div class="panel-primary">
+           <div class="panel-heading" style="background-color: #f88b2e">Liste des opérateurs
+             
+           	<div class="pull-right">
+			
+			<p:commandLink styleClass="btn btn-success btn-rounded waves-effect waves-light" style="margin-top:-7px; background-color: #036d3b" data-original-title="Nouvelle Demande" data-toggle="tooltip" action="#{operateurController.renderPage('ope2')}"  update=":content">
+				<span class="btn-label"><i class="fa fa-plus"></i></span><span class="hidden-xs"> Nouvel Operateur</span>
+				</p:commandLink>
+				
+			</div>
+           </div>
+          </div>
+          <div class="box-body">
+           <nav aria-label="Page navigation example">
+  <ul class="pagination">
+     <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'ALL' ? 'activelist' : ''}" value="TOUT" action="#{operateurController.changeStartWith('ALL')}" update=":gnl"  /></li>
+     <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'A' ? 'activelist' : ''}" value="A" action="#{operateurController.changeStartWith('A')}" update=":gnl"  /></li>
+      <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'B' ? 'activelist' : ''}" value="B" action="#{operateurController.changeStartWith('B')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'C' ? 'activelist' : ''}" value="C" action="#{operateurController.changeStartWith('C')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'D' ? 'activelist' : ''}" value="D" action="#{operateurController.changeStartWith('D')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'E' ? 'activelist' : ''}" value="E" action="#{operateurController.changeStartWith('E')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'F' ? 'activelist' : ''}" value="F" action="#{operateurController.changeStartWith('F')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'G' ? 'activelist' : ''}" value="G" action="#{operateurController.changeStartWith('G')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'H' ? 'activelist' : ''}" value="H" action="#{operateurController.changeStartWith('H')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'I' ? 'activelist' : ''}" value="I" action="#{operateurController.changeStartWith('I')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'J' ? 'activelist' : ''}" value="J" action="#{operateurController.changeStartWith('J')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'K' ? 'activelist' : ''}" value="K" action="#{operateurController.changeStartWith('K')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'L' ? 'activelist' : ''}" value="L" action="#{operateurController.changeStartWith('L')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'M' ? 'activelist' : ''}" value="M" action="#{operateurController.changeStartWith('M')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'N' ? 'activelist' : ''}" value="N" action="#{operateurController.changeStartWith('N')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'O' ? 'activelist' : ''}" value="O" action="#{operateurController.changeStartWith('O')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'P' ? 'activelist' : ''}" value="P" action="#{operateurController.changeStartWith('P')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'Q' ? 'activelist' : ''}" value="Q" action="#{operateurController.changeStartWith('Q')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'R' ? 'activelist' : ''}" value="R" action="#{operateurController.changeStartWith('R')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'S' ? 'activelist' : ''}" value="S" action="#{operateurController.changeStartWith('S')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'T' ? 'activelist' : ''}" value="T" action="#{operateurController.changeStartWith('T')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'U' ? 'activelist' : ''}" value="U" action="#{operateurController.changeStartWith('U')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'V' ? 'activelist' : ''}" value="V" action="#{operateurController.changeStartWith('V')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'W' ? 'activelist' : ''}" value="W" action="#{operateurController.changeStartWith('W')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'X' ? 'activelist' : ''}" value="X" action="#{operateurController.changeStartWith('X')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'Y' ? 'activelist' : ''}" value="Y" action="#{operateurController.changeStartWith('Y')}" update=":gnl"  /></li>
+		    <li class="page-item"><p:commandLink styleClass="#{operateurController.filterLetter == 'Z' ? 'activelist' : ''}" value="Z" action="#{operateurController.changeStartWith('Z')}" update=":gnl"  /></li>
+
+  </ul>
+</nav>
+            <div class="col-xs-12">
+           
+
+            
+            
+              <p:messages id="message" showDetail="false" autoUpdate="true"  closable="true"/></div>
+					
+					<p:dataTable id="ndTble" styleClass="table mb0 dt-on-steroids dataTable" var="slctdTb" value="#{operateurController.objetListe}" emptyMessage="Aucun opérateur enregistrée" rows="10" 
+                         paginator="true"
+                         rowsPerPageTemplate="5,10,15" >
+
+         				<p:column headerText="Matricule" styleClass="col-sm-1" >
+         				<h:outputText value="#{slctdTb.opeMatricule}"/>
+				        </p:column>
+				        
+				        <p:column headerText="Nom" styleClass="col-sm-1" >
+         				<h:outputText value="#{slctdTb.opeNom}"/>
+				        </p:column>
+				        
+				        <p:column headerText="Login" styleClass="col-sm-1" >
+         				<h:outputText value="#{slctdTb.opeLogin}"/>
+				        </p:column>
+				        
+				        <p:column headerText="Contact" styleClass="col-sm-1" >
+         				<h:outputText value="#{slctdTb.opeContact}"/>
+				        </p:column>
+				        
+				           
+				        <p:column headerText="E-mail" styleClass="col-sm-1" >
+         				<h:outputText value="#{slctdTb.opeMail}"/>
+				        </p:column>
+				         <p:column headerText="Actions" width="7%">
+				      
+         				    <button type="button" class="btn btn-xs btn-success" style="background-color: #036d3b">
+                              <p:commandLink action="#{operateurController.printOpe()}" title="Editer" ajax="false">
+                                <i class="ace-icon fa fa-file-pdf-o bigger-120"  style="color: white"></i>
+                                 <f:setPropertyActionListener value="#{slctdTb}" target="#{operateurController.slctdTd}" />
+                                </p:commandLink>
+                              </button>
+                              <!-- <i class="fa fa-exchange"></i> -->
+                     
+				               <button class="btn btn-xs btn-warning" style="background-color: #f88b2e">
+				              <p:commandLink action="#{operateurController.renderPage('ope3')}" title="Modifier" update=":content">
+                                <i class="ace-icon fa fa-pencil bigger-120"  style="color: white"></i>                                
+                                 <f:setPropertyActionListener value="#{slctdTb}" target="#{operateurController.slctdTd}" />
+                                </p:commandLink>
+                              </button>
+                            
+				               <button class="btn btn-xs btn-danger" >
+				              <p:commandLink action="#{operateurController.delete()}" title="Suprimer" update=":gnl">
+                                <i class="ace-icon fa fa-remove bigger-120"  style="color: white"></i>                                
+                                 <f:setPropertyActionListener value="#{slctdTb}" target="#{operateurController.slctdTd}" />
+                                </p:commandLink>
+                              </button>
+                              
+				         </p:column>    
+         
+        <f:facet name="paginatorTopLeft">
+            <p:commandButton type="button" icon="fa fa-sync" />
+        </f:facet>
+ 
+        <f:facet name="paginatorBottomRight">
+            <p:commandButton type="button" icon="fa fa-cloud-upload" />
+        </f:facet>
+    </p:dataTable>
+ 
+ <p:commandLink styleClass="btn btn-danger mr10" value="Fermer" style="margin-top:10px;" action="#{userController.renderPage('accueil')}"  update=":content"/>
+ 
+          </div>
+          
+          </div>
+          
+       </section>
+         
+
+</h:form>
+
+<h:form id="retourner">
+	        <p:dialog  widgetVar="retour" modal="true"   showEffect="fade" hideEffect="fade" width="40%" closable="true" header="Motif">
+					<div class="g12">
+						<div class="panel-heading">
+						Motif du retour de la demande N° #{demandeController.slctdTd.demCode}
+						
+						</div> 
+					<div class="panel-body panel-body-nopadding">
+	                  <p:inputTextarea rows="4" value="#{demandeController.demstatut.dehComment}" cols="100" style="width:100%;" readonly="true"/>
+	                  </div>
+	                  <div class="par pull-right"> par:<strong>#{demandeController.demstatut.fonLibelle}</strong></div>
+                     <div class="panel-footer">
+                      <p:commandLink styleClass="btn btn-warning" value="Fermer" oncomplete="PF('retour').hide()"/>
+                     </div>
+                    </div>
+      </p:dialog>
+    </h:form>
+	
+
+
+<p:confirmDialog global="true" showEffect="fade" hideEffect="fade"  width="30%" height="25%" >
+ 		<div align="center">
+        <p:commandButton value="Confirmer" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="Annuler" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </div>
+    </p:confirmDialog>
+    
+    </ui:define>
+    </ui:composition>
+</html>

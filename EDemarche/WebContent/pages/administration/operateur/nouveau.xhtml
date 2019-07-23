@@ -1,0 +1,155 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+     <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/ace.min.css"/>
+<ui:composition template="/template/templatePage.xhtml">
+
+	
+	<ui:define name="contents">      
+<h:form id="gnl">
+<section class="content-header">
+      <h1>
+        Opérateur
+        <small>Nouvel Operateur</small>
+      </h1>
+      <ol class="breadcrumb">
+       <p:commandLink action="#{userController.renderPage('accueil')}" update=":content" > 
+        <li><a><i class="fa fa-dashboard"></i> Acueil</a></li>
+        </p:commandLink>
+        <li class="active">Nouvel Operateur</li>
+      </ol>
+    </section>
+    
+    
+    <section class="content">
+       <div class="box box-default">
+<div class="panel-primary">
+           <div class="panel-heading" style="background-color: #f88b2e">ENREGISTREMENT D'UN NOUVEL OPERATEUR
+          
+           </div>
+          </div>
+          
+          <div class="box-body">
+         
+              <p:messages id="message" showDetail="false" autoUpdate="true"  closable="true"/>
+           <div class="widget-box">
+           
+                  <div class="widget-body">
+                 
+                    <div class="widget-main">
+                     <h:form id="gnl">
+                       <div id="fuelux-wizard-container">
+                           <div class="row">
+				                <div class="col-xs-12">
+		               
+		                <div class="ui-g">
+				    <div class="ui-g-12 ui-md-6 ui-lg-2"><b>Email<span style="color:red;"> *</span></b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-4">
+		         	<p:inputText  value="#{operateurController.newOpe.opeMail}" style="width:98%;"/>
+				    </div>
+				     
+				  </div>
+				  
+				    
+		         <div class="ui-g">
+		          <div class="ui-g-12 ui-md-6 ui-lg-2"><b> Matricule <span style="color:red;"> *</span></b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-3">
+		         	<p:inputText style="width:100%;" value="#{operateurController.newOpe.opeMatricule}" readonly="true"/>  
+				    </div>
+				    
+				    <div class="ui-g-12 ui-md-12 ui-lg-1">
+		         	
+                         
+				    </div>
+
+				     <div class="ui-g-12 ui-md-6 ui-lg-2"><b class="pull-right">Login<span style="color:red;"> *</span></b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-4">
+		         
+		         	  <p:inputText type="text" class="form-control"  id="sfApplyApply2_username"   value="#{operateurController.newOpe.opeLogin}" style="width:98%;" >
+                		                
+	                </p:inputText>
+		         	 
+				    </div>
+				  </div>
+		         <div class="ui-g">
+				    <div class="ui-g-12 ui-md-6 ui-lg-2"><b> Nom et Prenom(s)  <span style="color:red;"> *</span></b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-4">
+		         	<p:inputText  value="#{operateurController.newOpe.opeNom}" style="width:98%;"/>  
+				    </div>
+				     <div class="ui-g-12 ui-md-6 ui-lg-2"><b class="pull-right">Mot de passe<span style="color:red;"> *</span></b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-4">
+		         	<p:inputText value="#{operateurController.motPasse}" type="password" style="width:98%;"/>
+		         	 
+				    </div>
+				  </div>
+		         <div class="ui-g">
+				    <div class="ui-g-12 ui-md-6 ui-lg-2"><b>Civilité</b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-4">
+		         	<p:selectOneMenu id="civite" value="#{operateurController.newOpe.opeEtatCivil}"  style="width:98%;">
+			            <f:selectItem  itemLabel="Choisir..." itemValue="" />  
+			             <f:selectItem  itemLabel="Mr" itemValue="Mr" />  
+			           	  <f:selectItem  itemLabel="Mlle" itemValue="Mlle" /> 
+			           	    <f:selectItem  itemLabel="Mme" itemValue="Mme" />   	
+       		        </p:selectOneMenu> 
+				    </div>
+				     <div class="ui-g-12 ui-md-6 ui-lg-2"><b class="pull-right">Confirmation<span style="color:red;"> *</span></b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-4">
+		         	 <p:inputText value="#{operateurController.motPasse2}" type="password" style="width:98%;"/> 
+				    </div>
+				  </div>
+		         <div class="ui-g">
+				    <div class="ui-g-12 ui-md-6 ui-lg-2"><b>Contact </b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-4">
+		         	<p:inputText  value="#{operateurController.newOpe.opeContact}" id="sfApplyApply2_tel" style="width:98%;"/>  
+				    </div>
+				     <div class="ui-g-12 ui-md-6 ui-lg-2"><b class="pull-right"></b></div>
+				    <div class="ui-g-12 ui-md-12 ui-lg-4">
+		         	 
+		         	
+				    </div>
+				  </div>
+		               
+		                 </div>
+		                 </div>
+                        </div><!-- /.fuelux-wizard-container -->
+                       
+                         <hr />
+                         <div class="wizard-actions">
+                          <p:commandLink styleClass="btn btn-danger pull-left" action="#{operateurController.renderPage('ope1')}"  update=":content">
+	    			<i class="fa fa-power-off w3-xlarge"></i>	Fermer
+                       </p:commandLink>
+                          <p:commandLink styleClass="btn btn-warning" style="margin-left:10px"  action="#{operateurController.creerOperateur()}" update=":content">
+					      <p:confirm header="Confirmation" message="Confirmez vous l'enregistrement?" icon="ui-icon-alert" />
+                               Enregistrer
+                        </p:commandLink>
+                        
+                        
+                            </div>
+                           </h:form>
+
+                      </div><!-- /.widget-main -->
+                        
+                     </div><!-- /.widget-body -->
+                     
+                   </div>
+                     
+                 </div>
+                 
+             </div>
+              <p:confirmDialog global="true" showEffect="fade" hideEffect="fade"  width="30%" height="25%" >
+ 		<div align="center">
+        <p:commandButton value="Confirmer" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="Annuler" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </div>
+    </p:confirmDialog>    
+    </section>
+    
+   </h:form>
+   </ui:define>
+   </ui:composition>
+    
+
+</html>
